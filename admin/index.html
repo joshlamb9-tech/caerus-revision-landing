@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caerus Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2744;
+      --navy-dark: #0f1729;
+      --gold: #c9a84c;
+      --gold-light: #e2c97e;
+      --ivory: #faf8f3;
+      --warm-grey: #f0ede4;
+      --border: #e2d9c4;
+      --text: #1a2744;
+      --text-light: #4a5568;
+      --green: #10b981;
+      --red: #ef4444;
+    }
+
+    body { font-family: 'Inter', sans-serif; background: var(--ivory); color: var(--text); min-height: 100vh; }
+
+    /* --- LOGIN --- */
+    #login-screen {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .login-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 4px 24px rgba(26,39,68,0.08);
+    }
+
+    .login-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .login-logo .mark {
+      width: 36px;
+      height: 36px;
+      background: var(--navy);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .login-logo .wordmark {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .login-logo .wordmark span { color: var(--gold); }
+
+    .login-card h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+
+    .login-card p { font-size: 0.85rem; color: var(--text-light); margin-bottom: 1.75rem; }
+
+    label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
+
+    input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border: 1.5px solid var(--border);
+      border-radius: 7px;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--ivory);
+      margin-bottom: 1rem;
+      transition: border-color 0.15s;
+    }
+
+    input:focus { outline: none; border-color: var(--navy); }
+
+    .btn-primary {
+      width: 100%;
+      padding: 0.7rem;
+      background: var(--navy);
+      color: white;
+      border: none;
+      border-radius: 7px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .btn-primary:hover { background: var(--navy-dark); }
+    .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .error-msg {
+      margin-top: 1rem;
+      padding: 0.65rem 0.85rem;
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      color: var(--red);
+      display: none;
+    }
+
+    /* --- DASHBOARD --- */
+    #dashboard-screen { display: none; }
+
+    .topbar {
+      background: var(--navy);
+      padding: 0.85rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .topbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .topbar-logo .mark {
+      width: 28px;
+      height: 28px;
+      background: rgba(201,168,76,0.2);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .topbar-logo .name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .topbar-logo .name span { color: var(--gold-light); }
+
+    .topbar-right { display: flex; align-items: center; gap: 1rem; }
+    .topbar-email { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+
+    .btn-signout {
+      padding: 0.35rem 0.85rem;
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 5px;
+      font-size: 0.8rem;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .btn-signout:hover { background: rgba(255,255,255,0.18); }
+
+    .dashboard-body { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+
+    .dashboard-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+
+    .dashboard-sub { font-size: 0.82rem; color: var(--text-light); margin-bottom: 2rem; }
+
+    /* Stats row */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .stat-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+    .stat-value { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--navy); line-height: 1; }
+    .stat-sub { font-size: 0.75rem; color: var(--text-light); margin-top: 0.3rem; }
+
+    /* Two-col layout */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+
+    .panel {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .panel-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .panel-header .badge {
+      font-size: 0.7rem;
+      background: var(--warm-grey);
+      color: var(--text-light);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .panel-body { padding: 0; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    th { padding: 0.6rem 1.25rem; text-align: left; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); background: var(--warm-grey); }
+    td { padding: 0.65rem 1.25rem; border-top: 1px solid var(--border); color: var(--text); }
+    tr:hover td { background: var(--ivory); }
+
+    .page-name { font-weight: 500; color: var(--navy); }
+    .count-pill {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--gold-light);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+    }
+
+    /* Full-width panel */
+    .full-panel { margin-bottom: 1.5rem; }
+
+    .empty-state {
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+
+    .loading { padding: 2rem; text-align: center; color: var(--text-light); font-size: 0.82rem; }
+
+    .setup-banner {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-size: 0.82rem;
+      color: #92400e;
+      margin-bottom: 1.5rem;
+      display: none;
+    }
+
+    .setup-banner code {
+      background: rgba(0,0,0,0.06);
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+      .topbar { padding: 0.85rem 1rem; }
+      .topbar-email { display: none; }
+      .dashboard-body { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div id="login-screen">
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="mark">C</div>
+        <div class="wordmark">Caerus <span>Revision</span></div>
+      </div>
+      <h1>Admin Login</h1>
+      <p>Sign in to view your analytics dashboard.</p>
+      <form id="login-form">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@example.com" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="••••••••" required>
+        <button type="submit" class="btn-primary" id="login-btn">Sign in</button>
+        <div class="error-msg" id="error-msg"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard-screen">
+    <div class="topbar">
+      <div class="topbar-logo">
+        <div class="mark">C</div>
+        <div class="name">Caerus <span>Admin</span></div>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-email" id="admin-email"></span>
+        <button class="btn-signout" id="signout-btn">Sign out</button>
+      </div>
+    </div>
+
+    <div class="dashboard-body">
+      <h1 class="dashboard-title">Dashboard</h1>
+      <p class="dashboard-sub" id="last-updated">Loading…</p>
+
+      <div class="setup-banner" id="setup-banner">
+        ⚠️ Tables not found. Run the SQL setup in your Supabase dashboard: <br><br>
+        Copy the SQL from <code>admin/setup.sql</code> and run it in the Supabase SQL editor.
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Today</div>
+          <div class="stat-value" id="views-today">—</div>
+          <div class="stat-sub">page views</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">This week</div>
+          <div class="stat-value" id="views-week">—</div>
+          <div class="stat-sub">page views</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">All time</div>
+          <div class="stat-value" id="views-total">—</div>
+          <div class="stat-sub">page views</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Sessions today</div>
+          <div class="stat-value" id="sessions-today">—</div>
+          <div class="stat-sub">unique sessions</div>
+        </div>
+      </div>
+
+      <!-- Top pages + recent views -->
+      <div class="two-col">
+        <div class="panel">
+          <div class="panel-header">
+            Top Pages
+            <span class="badge" id="top-pages-badge">all time</span>
+          </div>
+          <div class="panel-body">
+            <div class="loading" id="top-pages-loading">Loading…</div>
+            <table id="top-pages-table" style="display:none">
+              <thead><tr><th>Page</th><th>Views</th></tr></thead>
+              <tbody id="top-pages-body"></tbody>
+            </table>
+            <div class="empty-state" id="top-pages-empty" style="display:none">No data yet.</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">Recent Activity</div>
+          <div class="panel-body">
+            <div class="loading" id="recent-loading">Loading…</div>
+            <table id="recent-table" style="display:none">
+              <thead><tr><th>Page</th><th>Time</th></tr></thead>
+              <tbody id="recent-body"></tbody>
+            </table>
+            <div class="empty-state" id="recent-empty" style="display:none">No visits recorded yet.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact submissions -->
+      <div class="panel full-panel">
+        <div class="panel-header">
+          Contact Form Submissions
+          <span class="badge" id="contacts-badge">0</span>
+        </div>
+        <div class="panel-body">
+          <div class="loading" id="contacts-loading">Loading…</div>
+          <table id="contacts-table" style="display:none">
+            <thead><tr><th>Date</th><th>Name</th><th>Email</th><th>School</th><th>Subject</th></tr></thead>
+            <tbody id="contacts-body"></tbody>
+          </table>
+          <div class="empty-state" id="contacts-empty" style="display:none">No contact submissions yet.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script>
+    const SUPABASE_URL = 'https://dlcseuejvducbsjhqvze.supabase.co';
+    const SUPABASE_ANON = 'sb_publishable_k_59EUPnHNnJ534tF0vMvQ_Ams9wV9L';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+    const loginScreen    = document.getElementById('login-screen');
+    const dashboardScreen = document.getElementById('dashboard-screen');
+    const loginForm      = document.getElementById('login-form');
+    const loginBtn       = document.getElementById('login-btn');
+    const errorMsg       = document.getElementById('error-msg');
+    const signoutBtn     = document.getElementById('signout-btn');
+    const adminEmail     = document.getElementById('admin-email');
+
+    // --- Auth state ---
+    sb.auth.onAuthStateChange((event, session) => {
+      if (session) {
+        showDashboard(session.user.email);
+      } else {
+        showLogin();
+      }
+    });
+
+    function showLogin() {
+      loginScreen.style.display = 'flex';
+      dashboardScreen.style.display = 'none';
+    }
+
+    function showDashboard(email) {
+      loginScreen.style.display = 'none';
+      dashboardScreen.style.display = 'block';
+      adminEmail.textContent = email;
+      loadDashboard();
+    }
+
+    // --- Login ---
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      loginBtn.disabled = true;
+      loginBtn.textContent = 'Signing in…';
+      errorMsg.style.display = 'none';
+
+      const { error } = await sb.auth.signInWithPassword({
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value
+      });
+
+      if (error) {
+        errorMsg.textContent = 'Invalid email or password.';
+        errorMsg.style.display = 'block';
+        loginBtn.disabled = false;
+        loginBtn.textContent = 'Sign in';
+      }
+    });
+
+    // --- Sign out ---
+    signoutBtn.addEventListener('click', async () => {
+      await sb.auth.signOut();
+    });
+
+    // --- Dashboard data ---
+    async function loadDashboard() {
+      const now = new Date();
+      document.getElementById('last-updated').textContent =
+        'Last updated ' + now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+
+      const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
+      const weekStart  = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000).toISOString();
+
+      try {
+        // --- Views today ---
+        const { count: todayCount, error: e1 } = await sb
+          .from('page_views')
+          .select('*', { count: 'exact', head: true })
+          .gte('created_at', todayStart);
+
+        if (e1 && e1.code === '42P01') { showSetupBanner(); return; }
+        document.getElementById('views-today').textContent = todayCount ?? 0;
+
+        // --- Views this week ---
+        const { count: weekCount } = await sb
+          .from('page_views')
+          .select('*', { count: 'exact', head: true })
+          .gte('created_at', weekStart);
+        document.getElementById('views-week').textContent = weekCount ?? 0;
+
+        // --- Views total ---
+        const { count: totalCount } = await sb
+          .from('page_views')
+          .select('*', { count: 'exact', head: true });
+        document.getElementById('views-total').textContent = totalCount ?? 0;
+
+        // --- Sessions today ---
+        const { data: sessionData } = await sb
+          .from('page_views')
+          .select('session_id')
+          .gte('created_at', todayStart);
+        const uniqueSessions = new Set((sessionData || []).map(r => r.session_id)).size;
+        document.getElementById('sessions-today').textContent = uniqueSessions;
+
+        // --- Top pages ---
+        const { data: allPages } = await sb
+          .from('page_views')
+          .select('page');
+
+        document.getElementById('top-pages-loading').style.display = 'none';
+        if (allPages && allPages.length > 0) {
+          const counts = {};
+          allPages.forEach(r => { counts[r.page] = (counts[r.page] || 0) + 1; });
+          const sorted = Object.entries(counts).sort((a,b) => b[1] - a[1]).slice(0, 8);
+          const tbody = document.getElementById('top-pages-body');
+          tbody.innerHTML = sorted.map(([page, count]) =>
+            `<tr><td class="page-name">${page}</td><td><span class="count-pill">${count}</span></td></tr>`
+          ).join('');
+          document.getElementById('top-pages-table').style.display = 'table';
+        } else {
+          document.getElementById('top-pages-empty').style.display = 'block';
+        }
+
+        // --- Recent activity ---
+        const { data: recent } = await sb
+          .from('page_views')
+          .select('page, created_at')
+          .order('created_at', { ascending: false })
+          .limit(15);
+
+        document.getElementById('recent-loading').style.display = 'none';
+        if (recent && recent.length > 0) {
+          const tbody = document.getElementById('recent-body');
+          tbody.innerHTML = recent.map(r => {
+            const t = new Date(r.created_at);
+            const time = t.toLocaleString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+            return `<tr><td class="page-name">${r.page}</td><td style="color:var(--text-light)">${time}</td></tr>`;
+          }).join('');
+          document.getElementById('recent-table').style.display = 'table';
+        } else {
+          document.getElementById('recent-empty').style.display = 'block';
+        }
+
+        // --- Contact submissions ---
+        const { data: contacts, count: contactCount } = await sb
+          .from('contact_submissions')
+          .select('*', { count: 'exact' })
+          .order('created_at', { ascending: false })
+          .limit(20);
+
+        document.getElementById('contacts-badge').textContent = contactCount ?? 0;
+        document.getElementById('contacts-loading').style.display = 'none';
+        if (contacts && contacts.length > 0) {
+          const tbody = document.getElementById('contacts-body');
+          tbody.innerHTML = contacts.map(r => {
+            const d = new Date(r.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+            return `<tr>
+              <td style="color:var(--text-light)">${d}</td>
+              <td>${r.name || '—'}</td>
+              <td><a href="mailto:${r.email}" style="color:var(--navy)">${r.email || '—'}</a></td>
+              <td>${r.school || '—'}</td>
+              <td>${r.subject || '—'}</td>
+            </tr>`;
+          }).join('');
+          document.getElementById('contacts-table').style.display = 'table';
+        } else {
+          document.getElementById('contacts-empty').style.display = 'block';
+        }
+
+      } catch (err) {
+        console.error('Dashboard load error:', err);
+      }
+    }
+
+    function showSetupBanner() {
+      document.getElementById('setup-banner').style.display = 'block';
+      ['top-pages-loading','recent-loading','contacts-loading'].forEach(id => {
+        document.getElementById(id).style.display = 'none';
+      });
+      ['top-pages-empty','recent-empty','contacts-empty'].forEach(id => {
+        document.getElementById(id).style.display = 'block';
+      });
+      ['views-today','views-week','views-total','sessions-today'].forEach(id => {
+        document.getElementById(id).textContent = '0';
+      });
+    }
+  </script>
+</body>
+</html>
