@@ -415,6 +415,22 @@
           <div class="empty-state" id="contacts-empty" style="display:none">No contact submissions yet.</div>
         </div>
       </div>
+
+      <!-- Paid users -->
+      <div class="panel full-panel">
+        <div class="panel-header">
+          Paid Users — Latin Access
+          <span class="badge" id="users-badge">0</span>
+        </div>
+        <div class="panel-body">
+          <div class="loading" id="users-loading">Loading…</div>
+          <table id="users-table" style="display:none">
+            <thead><tr><th>Email</th><th>Enrolled</th><th>Valid Until</th><th>Status</th></tr></thead>
+            <tbody id="users-body"></tbody>
+          </table>
+          <div class="empty-state" id="users-empty" style="display:none">No paid users yet.</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -583,6 +599,36 @@
           document.getElementById('contacts-empty').style.display = 'block';
         }
 
+        // --- Paid users ---
+        const { data: grants, count: grantCount } = await sb
+          .from('access_grants')
+          .select('email, created_at, valid_until', { count: 'exact' })
+          .order('created_at', { ascending: false });
+
+        document.getElementById('users-badge').textContent = grantCount ?? 0;
+        document.getElementById('users-loading').style.display = 'none';
+        if (grants && grants.length > 0) {
+          const now = new Date();
+          const tbody = document.getElementById('users-body');
+          tbody.innerHTML = grants.map(r => {
+            const enrolled = new Date(r.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+            const validUntil = new Date(r.valid_until).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+            const active = new Date(r.valid_until) > now;
+            const status = active
+              ? '<span style="color:#166534;font-weight:600">Active</span>'
+              : '<span style="color:#9ca3af">Expired</span>';
+            return `<tr>
+              <td>${r.email || '—'}</td>
+              <td style="color:var(--text-light)">${enrolled}</td>
+              <td style="color:var(--text-light)">${validUntil}</td>
+              <td>${status}</td>
+            </tr>`;
+          }).join('');
+          document.getElementById('users-table').style.display = 'table';
+        } else {
+          document.getElementById('users-empty').style.display = 'block';
+        }
+
       } catch (err) {
         console.error('Dashboard load error:', err);
       }
@@ -590,10 +636,10 @@
 
     function showSetupBanner() {
       document.getElementById('setup-banner').style.display = 'block';
-      ['top-pages-loading','recent-loading','contacts-loading'].forEach(id => {
+      ['top-pages-loading','recent-loading','contacts-loading','users-loading'].forEach(id => {
         document.getElementById(id).style.display = 'none';
       });
-      ['top-pages-empty','recent-empty','contacts-empty'].forEach(id => {
+      ['top-pages-empty','recent-empty','contacts-empty','users-empty'].forEach(id => {
         document.getElementById(id).style.display = 'block';
       });
       ['views-today','views-week','views-total','sessions-today'].forEach(id => {

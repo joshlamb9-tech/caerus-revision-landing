@@ -1,0 +1,11 @@
+[project]
+# Caerus Revision Supabase project
+# Project ID from: https://supabase.com/dashboard/project/dlcseuejvducbsjhqvze
+project_id = "dlcseuejvducbsjhqvze"
+
+[api]
+enabled = true
+port = 54321
+
+[db]
+port = 54322
