@@ -492,6 +492,94 @@
       flex-shrink: 0;
     }
 
+    /* ─── PSYCHOLOGY ─── */
+    .psychology {
+      background: var(--navy);
+      padding: 7rem 2rem;
+    }
+
+    .psychology-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .psychology-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .psychology-header .section-label {
+      justify-content: center;
+    }
+
+    .psychology-header .section-label::after { display: none; }
+
+    .psychology-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .psychology-sub {
+      font-size: 1.05rem;
+      color: rgba(250, 248, 243, 0.55);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .psych-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(201, 168, 76, 0.12);
+      border: 1px solid rgba(201, 168, 76, 0.12);
+    }
+
+    .psych-card {
+      background: var(--navy-d);
+      padding: 2.5rem;
+    }
+
+    .psych-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .psych-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+    }
+
+    .psych-card-body {
+      font-size: 1rem;
+      color: rgba(250, 248, 243, 0.6);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .psych-card-body strong { color: var(--gold); }
+
+    .psych-cite {
+      font-size: 0.78rem;
+      color: rgba(201, 168, 76, 0.45);
+      font-style: italic;
+      line-height: 1.5;
+      border-top: 1px solid rgba(201, 168, 76, 0.12);
+      padding-top: 0.75rem;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      .psych-grid { grid-template-columns: 1fr; }
+    }
+
     /* ─── PRICING ─── */
     .pricing {
       background: var(--cream);
@@ -898,6 +986,37 @@
       </div>
     </div>
   </div>
+
+  <!-- PSYCHOLOGY / RESEARCH -->
+  <section class="psychology">
+    <div class="psychology-inner">
+      <div class="psychology-header reveal">
+        <div class="section-label">Built on the science of memory</div>
+        <h2 class="psychology-title">Why most revision doesn&rsquo;t work — and how we fix it</h2>
+        <p class="psychology-sub">The design of Caerus Latin is grounded in cognitive science research on how memory actually works.</p>
+      </div>
+      <div class="psych-grid">
+        <div class="psych-card reveal">
+          <div class="psych-icon">📉</div>
+          <h3 class="psych-card-title">The Ebbinghaus Forgetting Curve</h3>
+          <p class="psych-card-body">Hermann Ebbinghaus (1885) demonstrated that without review, we forget roughly <strong>70% of new material within 24 hours</strong>. A single session of vocabulary reading does almost nothing — unless followed by spaced retrieval.</p>
+          <div class="psych-cite">Ebbinghaus, H. (1885). <em>Über das Gedächtnis.</em> Leipzig: Duncker.</div>
+        </div>
+        <div class="psych-card reveal" style="transition-delay: 0.1s">
+          <div class="psych-icon">🔁</div>
+          <h3 class="psych-card-title">Spaced Repetition</h3>
+          <p class="psych-card-body">The spacing effect — studying material across increasing intervals — is one of the <strong>most robust findings in cognitive psychology</strong>. Caerus Latin tracks each word's score and surfaces the ones most at risk of being forgotten.</p>
+          <div class="psych-cite">Cepeda, N.J. et al. (2006). Distributed practice in verbal recall tasks. <em>Psychological Bulletin, 132</em>(3), 354–380.</div>
+        </div>
+        <div class="psych-card reveal" style="transition-delay: 0.2s">
+          <div class="psych-icon">🧠</div>
+          <h3 class="psych-card-title">The Testing Effect</h3>
+          <p class="psych-card-body">Roediger &amp; Karpicke (2006) showed that <strong>retrieving information strengthens memory far more than re-reading it</strong>. Every flashcard and quiz in Caerus Latin forces active recall — turning each test into a learning event, not just a measurement.</p>
+          <div class="psych-cite">Roediger, H.L. &amp; Karpicke, J.D. (2006). Test-enhanced learning. <em>Psychological Science, 17</em>(3), 249–255.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- PRICING -->
   <section class="pricing">
