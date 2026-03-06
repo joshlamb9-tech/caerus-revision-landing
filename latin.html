@@ -155,6 +155,39 @@
       transform: translateY(-1px);
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-signin {
+      font-family: 'EB Garamond', serif;
+      font-size: 0.95rem;
+      color: rgba(250,248,243,0.7);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-signin:hover { color: var(--gold); }
+
+    .hero-signin {
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+      color: rgba(250,248,243,0.5);
+      font-style: italic;
+    }
+
+    .hero-signin a {
+      color: var(--gold);
+      text-decoration: none;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+
+    .hero-signin a:hover { opacity: 1; }
+
     /* ─── HERO ─── */
     .hero {
       position: relative;
@@ -939,9 +972,12 @@
   <!-- NAVIGATION -->
   <nav class="nav">
     <a href="#" class="nav-logo">Caerus <span>Latin</span></a>
-    <a href="https://latin.caerusrevision.co.uk/login.html" class="nav-cta">
-      Get Access &rarr;
-    </a>
+    <div class="nav-right">
+      <a href="https://latin.caerusrevision.co.uk/login.html" class="nav-signin">Sign in</a>
+      <a href="https://latin.caerusrevision.co.uk/login.html" class="nav-cta">
+        Get Access &rarr;
+      </a>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -963,6 +999,7 @@
       </a>
       <a href="#features" class="btn-ghost">See what&rsquo;s inside</a>
     </div>
+    <p class="hero-signin">Already have an account? <a href="https://latin.caerusrevision.co.uk/login.html">Sign in &rarr;</a></p>
     <div class="hero-scroll-hint">
       <span>Scroll</span>
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
