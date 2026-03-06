@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Caerus Latin — CE Latin Revision for Prep Schools</title>
-  <meta name="description" content="The only dedicated online revision resource for ISEB Common Entrance Latin. Full vocabulary, grammar, flashcards and practice papers. Built by a prep school teacher. £29.99 for the full CE year." />
+  <meta name="description" content="The only dedicated online revision resource for ISEB Common Entrance Latin. Full vocabulary, grammar, flashcards and practice papers. Built by a prep school teacher. £39.99 for the full CE year." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap" rel="stylesheet" />
@@ -701,6 +701,60 @@
       font-style: italic;
     }
 
+    .pricing-compare {
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .pricing-compare-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(250,248,243,0.4);
+      margin-bottom: 1.25rem;
+    }
+    .pricing-compare-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .pricing-compare-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 6px;
+      padding: 1.25rem 0.75rem;
+    }
+    .pricing-compare-item--highlight {
+      background: rgba(201,168,76,0.1);
+      border-color: rgba(201,168,76,0.4);
+    }
+    .pricing-compare-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(250,248,243,0.5);
+      margin-bottom: 0.5rem;
+    }
+    .pricing-compare-item--highlight .pricing-compare-label { color: var(--gold); }
+    .pricing-compare-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .pricing-compare-item--highlight .pricing-compare-amount { color: var(--gold); }
+    .pricing-compare-sub {
+      font-size: 0.78rem;
+      color: rgba(250,248,243,0.35);
+      line-height: 1.4;
+      font-style: italic;
+    }
+    @media (max-width: 600px) {
+      .pricing-compare-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     .pricing-intro {
       margin-bottom: 2.5rem;
     }
@@ -899,7 +953,7 @@
     <p class="hero-motto">Repetitio mater memoriae</p>
     <div class="hero-actions">
       <a href="https://latin.caerusrevision.co.uk/login.html" class="btn-primary">
-        Get Access &mdash; £29.99 &rarr;
+        Get Access &mdash; £39.99 &rarr;
       </a>
       <a href="#features" class="btn-ghost">See what&rsquo;s inside</a>
     </div>
@@ -1022,7 +1076,7 @@
       </div>
       <div class="pricing-card reveal">
         <div class="pricing-label">Full access</div>
-        <div class="pricing-amount"><sup>£</sup>29.99</div>
+        <div class="pricing-amount"><sup>£</sup>39.99</div>
         <div class="pricing-period">per year &mdash; access until your CE exams</div>
         <div class="pricing-divider"></div>
         <ul class="pricing-features">
@@ -1039,6 +1093,33 @@
         </a>
         <p class="pricing-note">One-time payment &middot; No subscription &middot; No auto-renewal</p>
       </div>
+
+      <div class="pricing-compare reveal">
+        <div class="pricing-compare-title">Put the price in context</div>
+        <div class="pricing-compare-grid">
+          <div class="pricing-compare-item pricing-compare-item--highlight">
+            <div class="pricing-compare-label">Caerus Latin</div>
+            <div class="pricing-compare-amount">11p</div>
+            <div class="pricing-compare-sub">per day for a full year</div>
+          </div>
+          <div class="pricing-compare-item">
+            <div class="pricing-compare-label">Latin tutor</div>
+            <div class="pricing-compare-amount">£60+</div>
+            <div class="pricing-compare-sub">per hour, south-east England</div>
+          </div>
+          <div class="pricing-compare-item">
+            <div class="pricing-compare-label">Galore Park book</div>
+            <div class="pricing-compare-amount">£15</div>
+            <div class="pricing-compare-sub">one book, no interactivity</div>
+          </div>
+          <div class="pricing-compare-item">
+            <div class="pricing-compare-label">CE revision course</div>
+            <div class="pricing-compare-amount">£200+</div>
+            <div class="pricing-compare-sub">Easter or summer school</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
