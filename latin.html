@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caerus Latin — CE Latin Revision for Prep Schools</title>
+  <meta name="description" content="The only dedicated online revision resource for ISEB Common Entrance Latin. Full vocabulary, grammar, flashcards and practice papers. Built by a prep school teacher. £29.99 for the full CE year." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Caerus Latin",
+      "description": "The only dedicated online revision resource for ISEB Common Entrance Latin at 13+. Full CE vocabulary list, grammar tables, flashcards, Speed Recall timed drills, and practice papers for Levels 1, 2 and 3. Built by a prep school teacher, reviewed by Heads of Classics.",
+      "url": "https://caerusrevision.co.uk/latin",
+      "brand": { "@type": "Brand", "name": "Caerus Revision" },
+      "author": {
+        "@type": "Person",
+        "name": "Josh Lamb",
+        "jobTitle": "Head of Languages",
+        "worksFor": { "@type": "EducationalOrganization", "name": "Mowden Hall School" }
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "29.99",
+        "priceCurrency": "GBP",
+        "availability": "https://schema.org/InStock",
+        "url": "https://latin.caerusrevision.co.uk/login.html"
+      },
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "student",
+        "audienceType": "Prep school pupils in Year 7 and Year 8, aged 11-13, preparing for ISEB Common Entrance Latin at 13+"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which exam does Caerus Latin cover?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Caerus Latin covers the ISEB Common Entrance Latin examination at 13+, specifically Levels 1, 2, and 3. All vocabulary, grammar, and practice material is taken directly from the ISEB specification. It is not designed for GCSE or A Level." }
+        },
+        {
+          "@type": "Question",
+          "name": "What level does my child need for Common Entrance Latin?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Most CE candidates sit at Level 1 or Level 2. Level 1 is the standard entry, Level 2 is more demanding and often required for scholarship candidates. Level 3 (scholarship) is also covered. Caerus Latin clearly marks which content belongs to which level throughout." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Caerus Latin suitable for self-study at home?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — it is designed for independent revision. Most parents cannot help with Latin at home, and most private tutors are expensive. Caerus Latin gives pupils a structured, self-directed way to revise vocabulary, consolidate grammar, and test themselves on past-paper material without needing an adult present." }
+        },
+        {
+          "@type": "Question",
+          "name": "What if my child is just starting Latin?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Caerus Latin is a revision tool, best used alongside classroom teaching. If your child is in Year 7 or early Year 8 and still learning the basics, it will complement their lessons well. By Year 8 exam season, the flashcards and practice papers will become the main focus." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does Caerus Latin cost?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Caerus Latin costs £29.99 for full access for the CE year. One payment gives access to all vocabulary, grammar, exercises, Speed Recall, and practice papers." }
+        }
+      ]
+    }
+  ]
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #1a2744;
+      --navy-d:  #0f1729;
+      --navy-l:  #243358;
+      --gold:    #c9a84c;
+      --gold-l:  #e2c06a;
+      --cream:   #faf8f3;
+      --cream-d: #f0ede4;
+      --cream-dd:#e5e0d4;
+      --ink:     #2a3550;
+      --muted:   #6b7a96;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      color: var(--navy);
+      background: var(--cream);
+      line-height: 1.65;
+      font-size: 1.1rem;
+      overflow-x: hidden;
+    }
+
+    /* ─── NOISE TEXTURE ─── */
+    .noise::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      opacity: 0.035;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ─── NAVIGATION ─── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(15, 23, 41, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-logo span {
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--navy-d);
+      text-decoration: none;
+      font-family: 'EB Garamond', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.55rem 1.4rem;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-l);
+      transform: translateY(-1px);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: var(--navy-d);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 5rem;
+      overflow: hidden;
+    }
+
+    /* Radial glow behind hero text */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: 'EB Garamond', serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      color: var(--cream);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      max-width: 900px;
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-rule {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 0.8s 0.25s ease both;
+    }
+
+    .hero-rule-line {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold));
+    }
+
+    .hero-rule-line.r {
+      background: linear-gradient(to left, transparent, var(--gold));
+    }
+
+    .hero-rule-diamond {
+      width: 7px;
+      height: 7px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+
+    .hero-sub {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      font-style: italic;
+      color: rgba(250, 248, 243, 0.7);
+      max-width: 580px;
+      margin-bottom: 0.75rem;
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+
+    .hero-motto {
+      font-family: 'EB Garamond', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(201, 168, 76, 0.65);
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 0.8s 0.35s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 0.8s 0.45s ease both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--gold);
+      color: var(--navy-d);
+      text-decoration: none;
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.85rem 2.5rem;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-l);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: transparent;
+      color: var(--cream);
+      text-decoration: none;
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      padding: 0.85rem 2rem;
+      border: 1px solid rgba(250, 248, 243, 0.25);
+      border-radius: 2px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      background: rgba(201, 168, 76, 0.07);
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(250, 248, 243, 0.3);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: fadeUp 1s 1s ease both;
+      z-index: 2;
+    }
+
+    .hero-scroll-hint svg {
+      animation: bounce 2s 2s ease-in-out infinite;
+    }
+
+    /* ─── PROBLEM SECTION ─── */
+    .problem {
+      background: var(--cream);
+      padding: 7rem 2rem;
+    }
+
+    .problem-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .problem-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.25;
+      color: var(--navy);
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .problem-quote::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.3em;
+      bottom: 0.3em;
+      width: 3px;
+      background: var(--gold);
+    }
+
+    .problem-body {
+      color: var(--ink);
+    }
+
+    .problem-body p {
+      margin-bottom: 1.25rem;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .problem-body p:last-child { margin-bottom: 0; }
+
+    .problem-body strong {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    /* ─── SECTION LABEL ─── */
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-label::after {
+      content: '';
+      display: block;
+      flex: 1;
+      max-width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    /* ─── FEATURES ─── */
+    .features {
+      background: var(--navy);
+      padding: 7rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .features .noise::after { opacity: 0.025; }
+
+    .features-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .features-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .features-header .section-label {
+      justify-content: center;
+    }
+
+    .features-header .section-label::after { display: none; }
+
+    .features-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5px;
+      background: rgba(201, 168, 76, 0.15);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+    }
+
+    .feature-card {
+      background: var(--navy);
+      padding: 2.5rem;
+      transition: background 0.2s;
+    }
+
+    .feature-card:hover {
+      background: var(--navy-l);
+    }
+
+    .feature-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      font-style: italic;
+      color: rgba(201, 168, 76, 0.25);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .feature-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .feature-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.6rem;
+    }
+
+    .feature-desc {
+      font-size: 1rem;
+      color: rgba(250, 248, 243, 0.6);
+      line-height: 1.6;
+    }
+
+    /* ─── CREDIBILITY ─── */
+    .credibility {
+      background: var(--cream-d);
+      border-top: 1px solid var(--cream-dd);
+      border-bottom: 1px solid var(--cream-dd);
+      padding: 2.5rem 2rem;
+    }
+
+    .credibility-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .cred-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+
+    .cred-item svg {
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .cred-divider {
+      width: 5px;
+      height: 5px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+
+    /* ─── PSYCHOLOGY ─── */
+    .psychology {
+      background: var(--navy);
+      padding: 7rem 2rem;
+    }
+
+    .psychology-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .psychology-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .psychology-header .section-label {
+      justify-content: center;
+    }
+
+    .psychology-header .section-label::after { display: none; }
+
+    .psychology-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .psychology-sub {
+      font-size: 1.05rem;
+      color: rgba(250, 248, 243, 0.55);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .psych-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(201, 168, 76, 0.12);
+      border: 1px solid rgba(201, 168, 76, 0.12);
+    }
+
+    .psych-card {
+      background: var(--navy-d);
+      padding: 2.5rem;
+    }
+
+    .psych-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .psych-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+    }
+
+    .psych-card-body {
+      font-size: 1rem;
+      color: rgba(250, 248, 243, 0.6);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .psych-card-body strong { color: var(--gold); }
+
+    .psych-cite {
+      font-size: 0.78rem;
+      color: rgba(201, 168, 76, 0.45);
+      font-style: italic;
+      line-height: 1.5;
+      border-top: 1px solid rgba(201, 168, 76, 0.12);
+      padding-top: 0.75rem;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      .psych-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── PRICING ─── */
+    .pricing {
+      background: var(--cream);
+      padding: 7rem 2rem;
+    }
+
+    .pricing-inner {
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .pricing-card {
+      background: var(--navy-d);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-radius: 4px;
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+
+    .pricing-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .pricing-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .pricing-amount sup {
+      font-size: 1.8rem;
+      vertical-align: super;
+    }
+
+    .pricing-period {
+      font-size: 0.9rem;
+      color: rgba(250, 248, 243, 0.45);
+      margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .pricing-divider {
+      height: 1px;
+      background: rgba(201, 168, 76, 0.2);
+      margin: 2rem 0;
+    }
+
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      font-size: 1rem;
+      color: rgba(250, 248, 243, 0.8);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+    }
+
+    .pricing-features li:last-child { border-bottom: none; }
+
+    .pricing-features li::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.6rem;
+      margin-top: 0.4rem;
+      flex-shrink: 0;
+    }
+
+    .btn-primary-lg {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: var(--gold);
+      color: var(--navy-d);
+      text-decoration: none;
+      font-family: 'EB Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 1rem 2.5rem;
+      border-radius: 2px;
+      width: 100%;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+
+    .btn-primary-lg:hover {
+      background: var(--gold-l);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201, 168, 76, 0.25);
+    }
+
+    .pricing-note {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: rgba(250, 248, 243, 0.35);
+      font-style: italic;
+    }
+
+    .pricing-intro {
+      margin-bottom: 2.5rem;
+    }
+
+    .pricing-intro .section-label {
+      justify-content: center;
+    }
+
+    .pricing-intro .section-label::after { display: none; }
+
+    .pricing-intro h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    /* ─── FAQ ─── */
+    .faq {
+      background: var(--navy);
+      padding: 7rem 2rem;
+    }
+
+    .faq-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .faq-header .section-label {
+      justify-content: center;
+    }
+
+    .faq-header .section-label::after { display: none; }
+
+    .faq-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--cream);
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover { color: var(--gold); }
+
+    .faq-question:hover .faq-icon { color: var(--gold); }
+
+    .faq-icon {
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: transform 0.3s, color 0.2s;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      font-size: 1rem;
+      color: rgba(250, 248, 243, 0.6);
+      line-height: 1.7;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-bottom: 1.5rem;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy-d);
+      border-top: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-logo span { color: var(--gold); }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(250, 248, 243, 0.45);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: rgba(250, 248, 243, 0.25);
+      margin-top: 1rem;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(6px); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav { padding: 0 1.25rem; }
+      .problem-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .features-grid { grid-template-columns: 1fr; }
+      .credibility-inner { flex-direction: column; gap: 1rem; text-align: center; }
+      .cred-divider { display: none; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .btn-ghost { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <a href="#" class="nav-logo">Caerus <span>Latin</span></a>
+    <a href="https://latin.caerusrevision.co.uk/login.html" class="nav-cta">
+      Get Access &rarr;
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero noise">
+    <div class="hero-eyebrow">ISEB Common Entrance Latin</div>
+    <h1 class="hero-headline">
+      The <em>only</em> dedicated online revision resource for CE Latin
+    </h1>
+    <div class="hero-rule">
+      <span class="hero-rule-line"></span>
+      <span class="hero-rule-diamond"></span>
+      <span class="hero-rule-line r"></span>
+    </div>
+    <p class="hero-sub">Full vocabulary, grammar, flashcards and practice papers — built for ISEB Common Entrance, Level 1 to Level 3.</p>
+    <p class="hero-motto">Repetitio mater memoriae</p>
+    <div class="hero-actions">
+      <a href="https://latin.caerusrevision.co.uk/login.html" class="btn-primary">
+        Get Access &mdash; £29.99 &rarr;
+      </a>
+      <a href="#features" class="btn-ghost">See what&rsquo;s inside</a>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M8 3v10M4 9l4 4 4-4"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="problem-inner">
+      <div class="reveal">
+        <p class="problem-quote">&ldquo;CE Latin is hard. There was no digital resource. So we built one.&rdquo;</p>
+      </div>
+      <div class="problem-body reveal" style="transition-delay: 0.15s">
+        <div class="section-label">The problem we solved</div>
+        <p>When Year 8 pupils sit their Common Entrance Latin paper, they face a demanding exam with a specific word list, specific grammar, and specific types of passage. Yet until now, <strong>no dedicated digital revision tool existed for it.</strong></p>
+        <p>Parents searching online find Galore Park books, printed past papers, and generic flashcard apps. Teachers point pupils to resources built for GCSE, not CE. The gap was obvious.</p>
+        <p><strong>Caerus Latin fills that gap.</strong> Every word, every grammar table, every exercise is built specifically around the ISEB CE specification — nothing more, nothing less.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features noise" id="features">
+    <div class="features-inner">
+      <div class="features-header reveal">
+        <div class="section-label">What&rsquo;s inside</div>
+        <h2 class="features-title">Everything a CE Latin pupil needs.<br>Nothing they don&rsquo;t.</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-num">01</div>
+          <span class="feature-icon">📖</span>
+          <h3 class="feature-title">Full ISEB Vocabulary List</h3>
+          <p class="feature-desc">All 224 CE words — searchable, browsable, and filterable by level (1 or 2), part of speech, and declension. Each entry shows genitive, gender, and grammatical notes.</p>
+        </div>
+        <div class="feature-card reveal" style="transition-delay: 0.1s">
+          <div class="feature-num">02</div>
+          <span class="feature-icon">🏛</span>
+          <h3 class="feature-title">Grammar Tables</h3>
+          <p class="feature-desc">Complete declension and conjugation tables for every noun class and verb conjugation in the CE spec — clearly laid out, easy to memorise, with explanatory notes.</p>
+        </div>
+        <div class="feature-card reveal" style="transition-delay: 0.15s">
+          <div class="feature-num">03</div>
+          <span class="feature-icon">✏️</span>
+          <h3 class="feature-title">Flashcards &amp; Quizzes</h3>
+          <p class="feature-desc">Spaced repetition flashcards, vocabulary quizzes, and grammar drills — all filterable by level and grammar type. Track which words you&rsquo;ve mastered and which need work.</p>
+        </div>
+        <div class="feature-card reveal" style="transition-delay: 0.2s">
+          <div class="feature-num">04</div>
+          <span class="feature-icon">📜</span>
+          <h3 class="feature-title">Practice Papers</h3>
+          <p class="feature-desc">Original CE-style passages at Levels 1, 2, and 3 — each carefully constructed using only CE vocabulary and grammar, with mark schemes and vocabulary boxes included.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDIBILITY -->
+  <div class="credibility">
+    <div class="credibility-inner reveal">
+      <div class="cred-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Built by a practising prep school teacher
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Methodology of R.C. Bass &mdash; <em>Nova Latina</em>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Reviewed by Heads of Classics
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        Works on any device
+      </div>
+    </div>
+  </div>
+
+  <!-- PSYCHOLOGY / RESEARCH -->
+  <section class="psychology">
+    <div class="psychology-inner">
+      <div class="psychology-header reveal">
+        <div class="section-label">Built on the science of memory</div>
+        <h2 class="psychology-title">Why most revision doesn&rsquo;t work — and how we fix it</h2>
+        <p class="psychology-sub">The design of Caerus Latin is grounded in cognitive science research on how memory actually works.</p>
+      </div>
+      <div class="psych-grid">
+        <div class="psych-card reveal">
+          <div class="psych-icon">📉</div>
+          <h3 class="psych-card-title">The Ebbinghaus Forgetting Curve</h3>
+          <p class="psych-card-body">Hermann Ebbinghaus (1885) demonstrated that without review, we forget roughly <strong>70% of new material within 24 hours</strong>. A single session of vocabulary reading does almost nothing — unless followed by spaced retrieval.</p>
+          <div class="psych-cite">Ebbinghaus, H. (1885). <em>Über das Gedächtnis.</em> Leipzig: Duncker.</div>
+        </div>
+        <div class="psych-card reveal" style="transition-delay: 0.1s">
+          <div class="psych-icon">🔁</div>
+          <h3 class="psych-card-title">Spaced Repetition</h3>
+          <p class="psych-card-body">The spacing effect — studying material across increasing intervals — is one of the <strong>most robust findings in cognitive psychology</strong>. Caerus Latin tracks each word's score and surfaces the ones most at risk of being forgotten.</p>
+          <div class="psych-cite">Cepeda, N.J. et al. (2006). Distributed practice in verbal recall tasks. <em>Psychological Bulletin, 132</em>(3), 354–380.</div>
+        </div>
+        <div class="psych-card reveal" style="transition-delay: 0.2s">
+          <div class="psych-icon">🧠</div>
+          <h3 class="psych-card-title">The Testing Effect</h3>
+          <p class="psych-card-body">Roediger &amp; Karpicke (2006) showed that <strong>retrieving information strengthens memory far more than re-reading it</strong>. Every flashcard and quiz in Caerus Latin forces active recall — turning each test into a learning event, not just a measurement.</p>
+          <div class="psych-cite">Roediger, H.L. &amp; Karpicke, J.D. (2006). Test-enhanced learning. <em>Psychological Science, 17</em>(3), 249–255.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing">
+    <div class="pricing-inner">
+      <div class="pricing-intro reveal">
+        <div class="section-label">Pricing</div>
+        <h2>One simple price.<br>The whole CE year.</h2>
+      </div>
+      <div class="pricing-card reveal">
+        <div class="pricing-label">Full access</div>
+        <div class="pricing-amount"><sup>£</sup>29.99</div>
+        <div class="pricing-period">per year &mdash; access until your CE exams</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Complete ISEB CE vocabulary list (all 224 words)</li>
+          <li>Full grammar tables — all declensions &amp; conjugations</li>
+          <li>Spaced repetition flashcards with progress tracking</li>
+          <li>Vocabulary quizzes &amp; grammar drills</li>
+          <li>Practice papers at Levels 1, 2 &amp; 3 with mark schemes</li>
+          <li>Works on any device — phone, tablet, or computer</li>
+          <li>Instant access — start revising today</li>
+        </ul>
+        <a href="https://latin.caerusrevision.co.uk/login.html" class="btn-primary-lg">
+          Get Access Now &rarr;
+        </a>
+        <p class="pricing-note">One-time payment &middot; No subscription &middot; No auto-renewal</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="faq-inner">
+      <div class="faq-header reveal">
+        <div class="section-label">FAQ</div>
+        <h2 class="faq-title">Common questions</h2>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          Which exam does this cover?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          Caerus Latin covers the ISEB Common Entrance Latin examination at 13+, specifically Levels 1, 2, and 3. All vocabulary, grammar, and practice material is taken directly from the ISEB specification. It is not designed for GCSE or A Level.
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          What level does my child need?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          Most CE candidates sit at Level 1 or Level 2. Level 1 is the standard entry, Level 2 is more demanding and is often required for scholarship candidates. Level 3 (scholarship) is also covered for those aiming for academic awards. The site clearly marks which content belongs to which level throughout.
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          Is it suitable for self-study at home?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          Yes — it's designed for independent revision. Most parents can't help with Latin at home, and most private tutors are expensive. Caerus Latin gives pupils a structured, self-directed way to revise vocabulary, consolidate grammar, and test themselves on past-paper style material without needing an adult present.
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          What if my child is just starting Latin?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          Caerus Latin is a revision tool, best used alongside classroom teaching. If your child is in Year 7 or early Year 8 and still learning the basics, it will complement their lessons well — they can use the vocabulary browser and grammar tables as a reference. By Year 8 exam season, the flashcards and practice papers will become the main focus.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Caerus <span>Latin</span></div>
+    <div class="footer-links">
+      <a href="https://latin.caerusrevision.co.uk/login.html">Get Access</a>
+      <a href="https://caerusrevision.co.uk">caerusrevision.co.uk</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Caerus Revision &middot; Built by Josh Lamb, Head of Languages, Mowden Hall School &middot; Content reviewed by Heads of Classics</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+</html>
